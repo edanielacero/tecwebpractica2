@@ -19,8 +19,8 @@ namespace P2_001
     {
         public Startup(IWebHostEnvironment env)
         {
-            var builder = new ConfigurationBuilder().SetBasePath(env.ContentRootPath).AddJsonFile("appsetting.json", optional: false, reloadOnChange: true).AddJsonFile($"appsetting.{env.EnvironmentName}.json", optional: false, reloadOnChange: true).AddEnvironmentVariables();
-            Configuration = builder.Build();
+            var builder = new ConfigurationBuilder().SetBasePath(env.ContentRootPath).AddJsonFile("appsetting.json", optional: false, reloadOnChange: true).AddJsonFile($"appsetting.{env.EnvironmentName}.json", optional: false, reloadOnChange: true).AddEnvironmentVariables().Build();
+            Configuration = builder;
         }
 
         public IConfiguration Configuration { get; }
