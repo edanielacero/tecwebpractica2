@@ -17,9 +17,10 @@ namespace P2_001
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IWebHostEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder().SetBasePath(env.ContentRootPath).AddJsonFile("appsetting.json", optional: false, reloadOnChange: true).AddJsonFile($"appsetting.{env.EnvironmentName}.json", optional: false, reloadOnChange: true).AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -34,14 +35,14 @@ namespace P2_001
 
                 options.SwaggerDoc(groupName, new OpenApiInfo
                 {
-                    Title = $"Foo {groupName}",
+                    Title = $"Practica2 {groupName}",
                     Version = groupName,
-                    Description = "Foo API",
+                    Description = "P2",
                     Contact = new OpenApiContact
                     {
-                        Name = "Foo Company",
+                        Name = "Daniel Acero",
                         Email = string.Empty,
-                        Url = new Uri("https://foo.com/"),
+                        Url = new Uri("https://danielacerop2.com/"),
                     }
                 });
             });
