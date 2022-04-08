@@ -10,8 +10,8 @@ namespace Logic
         {
             Users = new List<User>()
             {
-                new User () {name = "Edwin"},
-                new User () {name = "Daniel"}
+                new User () {Name = "Edwin"},
+                new User () {Name = "Daniel"}
             };
         }
         public List<User> GetUsers()
@@ -25,7 +25,7 @@ namespace Logic
         }
         public User PutUsers(User user)
         {
-            //return true;
+            Users.Find
         }
         public User DeleteUsers(User user)
         {
