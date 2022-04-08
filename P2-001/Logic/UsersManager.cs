@@ -25,11 +25,14 @@ namespace Logic
         }
         public User PutUsers(User user)
         {
-            Users.Find
+            User userFound = Users.Find(us => us.Name == user.Name);
+            Users.
         }
         public User DeleteUsers(User user)
         {
-            //return true;
+            User userFound = Users.Find(us => us.Name == user.Name);
+            Users.Remove(userFound);
+            return user;
         }
     }
 }
